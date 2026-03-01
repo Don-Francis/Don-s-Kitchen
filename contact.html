@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - Don's Kitchen</title>
+    <link rel="stylesheet" href="contact.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="shortcut icon"
+      href="/portfolio-img/dk-favicon.png"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img
+          src="/portfolio-img/logo.webp"
+          class="logo-img"
+          alt="Logo"
+          loading="eager"
+          decoding="async"
+        />
+        <!-- Added alt, loading, and decoding for better performance -->
+      </div>
+      <h1>Good Foods, Happy Smiles</h1>
+      <nav>
+        <a href="restaurant.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html" class="active">Contacts</a>
+        <a href="index.html">Back</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Page Header -->
+      <section class="page-header">
+        <h2>Get In <span>Touch</span></h2>
+        <p>
+          We'd love to hear from you! Reach out with any questions,
+          reservations, or feedback.
+        </p>
+      </section>
+
+      <!-- Contact Info Cards -->
+      <section class="contact-info">
+        <div class="info-card" id="map-section">
+          <div class="icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3>Visit Us</h3>
+          <p>UDS Nyankpala Campus<br />Nyankpala, Northern Region<br />Ghana</p>
+          <a
+            href="https://www.google.com/maps/dir/?api=1&destination=9.4154845,-0.9866768&destination_place_id=UDS+Nyankpala+Campus"
+            target="_blank"
+            class="info-link"
+          >
+            Get Directions <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="info-card" id="call-section">
+          <div class="icon">
+            <i class="fas fa-phone-alt"></i>
+          </div>
+          <h3>Call Us</h3>
+          <p>+233 (555) 123-4567<br />+233 (555) 987-6543</p>
+          <a href="tel:+233123456789" class="info-link">Call Now →</a>
+        </div>
+
+        <div class="info-card">
+          <div class="icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <h3>Email Us</h3>
+          <p>info@donskitchen.com<br />reservations@donskitchen.com</p>
+          <a href="mailto:info@donskitchen.com" class="info-link"
+            >Send Email →</a
+          >
+        </div>
+
+        <div class="info-card">
+          <div class="icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <h3>Opening Hours</h3>
+          <p>
+            Mon-Thu: 9am - 10pm<br />Fri-Sat: 8am - 11pm<br />Sunday: 12pm -
+            10pm
+          </p>
+        </div>
+      </section>
+
+      <!-- Contact Form & Map Section -->
+      <section class="contact-main" id="form-section">
+        <div class="contact-form-container">
+          <h3>Send Us a Message</h3>
+          <p>We'll get back to you within 24 hours</p>
+
+          <form class="contact-form" action="" method="post">
+            <!-- Hidden Success Message -->
+            <div
+              id="success-message"
+              style="
+                display: none;
+                background-color: #d4edda;
+                color: #155724;
+                padding: 15px;
+                border-radius: 8px;
+                margin-bottom: 20px;
+                border: 1px solid #c3e6cb;
+              "
+            >
+              <strong>Thank You!</strong> Your message has benn sent
+              successfully. We'll get back to you within 24 hours.
+
+              <!-- Check if form was just submitted successfully -->
+              <script>
+                // check if url has a success parameter
+                const urlParams = new URLSearchParams(window.location.search);
+                if (urlParams.get("success") === "true") {
+                  document.getElementById("success-message").style.display =
+                    "block";
+                  // Remove success parameter from URL without refreshing
+                  window.history.replaceState(
+                    {},
+                    document.title,
+                    window.location.pathname,
+                  );
+                }
+              </script>
+            </div>
+            <!-- Redirect -->
+            <input
+              type="hidden"
+              name="_next"
+              value="contact.html?success=true"
+            />
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Don Francis"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="donfrancis@example.com"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="+233 12 345 6789"
+                />
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <select id="subject" name="subject">
+                  <option value="general">General Inquiry</option>
+                  <option value="reservation">Reservation</option>
+                  <option value="catering">Catering</option>
+                  <option value="event planning">Event Planning</option>
+                  <option value="feedback">Feedback</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="message">Message *</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="6"
+                placeholder="How can we help you?"
+                required
+              ></textarea>
+            </div>
+
+            <!-- <div class="form-group full-width">
+              <label class="checkbox-label">
+                <input type="checkbox" name="newsletter" />
+                Subscribe to our newsletter for updates and special offers
+              </label>
+            </div> -->
+
+            <!-- Prevention Of Spam -->
+            <input type="text" name="_gotcha" style="display: none" />
+
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+        </div>
+
+        <div class="map-container">
+          <h3>Find Us Here</h3>
+          <div class="map">
+            <!-- Replace src with your actual Google Maps embed URL -->
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.303131451251!2d-0.989251684631484!3d9.415484490632162!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfd4112be48e89cd%3A0x18d9ba4dde395d35!2sUDS%20Nyankpala%20Campus!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+              width="100%"
+              height="300"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            >
+            </iframe>
+          </div>
+
+          <div class="map-links">
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=9.4154845,-0.9866768&destination_place_id=UDS+Nyankpala+Campus"
+              target="_blank"
+              class="map-link"
+            >
+              <i class="fas fa-directions"></i> Get Directions
+            </a>
+            <a
+              href="https://www.google.com/maps/search/parking+near+UDS+Nyankpala+Campus/@9.4154845,-0.9866768,17z"
+              target="_blank"
+              class="map-link"
+            >
+              <i class="fas fa-car"></i> Parking Info
+            </a>
+            <a
+              href="https://www.google.com/maps/search/bus+stop+near+UDS+Nyankpala+Campus/@9.4154845,-0.9866768,15z"
+              target="_blank"
+              class="map-link"
+            >
+              <i class="fas fa-bus"></i> Public Transit
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="faq-section">
+        <h3>Frequently Asked Questions</h3>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <h4>Do you take reservations?</h4>
+            <p>
+              Yes! We recommend reservations for weekend dinners. Use our
+              contact form or call us directly.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h4>Do you offer catering?</h4>
+            <p>
+              Absolutely! We cater events of all sizes. Contact us for a
+              customized quote.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h4>Do you accommodate dietary restrictions?</h4>
+            <p>
+              Yes, we offer vegetarian, vegan, and gluten-free options. Just let
+              us know!
+            </p>
+          </div>
+          <div class="faq-item">
+            <h4>What's your cancellation policy?</h4>
+            <p>
+              Cancellations within 2 hours of reservation may incur a fee.
+              Please call to reschedule.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Don's Kitchen</h4>
+          <p>Serving love on every plate since 2006</p>
+          <div class="social-links">
+            <a href=""><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-yelp"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="contact.html">Contact</a>
+          <a href="#">Privacy Policy</a>
+        </div>
+        <div class="footer-section">
+          <h4>Contact Info</h4>
+          <p><i class="fas fa-phone"></i> +233 123-4567</p>
+          <p><i class="fas fa-envelope"></i> info@donskitchen.com</p>
+          <p>
+            <i class="fas fa-map-marker-alt"></i> 123 Nyankpala Street, NS 12345
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&trade; Don's Kitchen. 2026 All rights reserved</p>
+      </div>
+    </footer>
+  </body>
+</html>
